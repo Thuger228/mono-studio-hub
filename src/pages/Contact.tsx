@@ -1,24 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { MapPin, Phone, Instagram, Link as LinkIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useState } from 'react';
-import { toast } from 'sonner';
 
 const Contact = () => {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Message sent successfully!');
-    setFormData({ name: '', email: '', message: '' });
-  };
 
   return (
     <div className="min-h-screen pt-20">
@@ -27,44 +11,23 @@ const Contact = () => {
           <h1 className="text-5xl font-bold text-center mb-16">{t('contact_title')}</h1>
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
+            {/* Contact Information */}
             <div className="bg-card border border-border rounded-lg p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">{t('contact_name')}</label>
-                  <Input
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="bg-background"
-                  />
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <LinkIcon className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="font-medium">Linktree</p>
+                    <a href="https://linktr.ee/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">linktr.ee/sanctumsound</a>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">{t('contact_email')}</label>
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="bg-background"
-                  />
+                <div className="flex items-center gap-3">
+                  <Instagram className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="font-medium">Instagram</p>
+                    <a href="https://instagram.com/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">@sanctumsound</a>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">{t('contact_message')}</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
-                    className="bg-background"
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  {t('contact_send')}
-                </Button>
-              </form>
-
-              <div className="mt-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
@@ -77,20 +40,6 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">{t('contact_phone')}</p>
                     <p className="text-sm text-muted-foreground">+48 123 456 789</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Instagram className="w-5 h-5 text-primary" />
-                  <div>
-                    <p className="font-medium">Instagram</p>
-                    <a href="https://instagram.com/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">@sanctumsound</a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <LinkIcon className="w-5 h-5 text-primary" />
-                  <div>
-                    <p className="font-medium">Linktree</p>
-                    <a href="https://linktr.ee/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">linktr.ee/sanctumsound</a>
                   </div>
                 </div>
               </div>
