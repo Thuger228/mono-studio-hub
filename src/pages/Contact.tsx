@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Instagram, Link as LinkIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -80,10 +80,17 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary" />
+                  <Instagram className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-sm text-muted-foreground">info@sanctumsound.com</p>
+                    <p className="font-medium">Instagram</p>
+                    <a href="https://instagram.com/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">@sanctumsound</a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <LinkIcon className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="font-medium">Linktree</p>
+                    <a href="https://linktr.ee/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">linktr.ee/sanctumsound</a>
                   </div>
                 </div>
               </div>
