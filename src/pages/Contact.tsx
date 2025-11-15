@@ -18,28 +18,28 @@ const Contact = () => {
                   <LinkIcon className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="font-medium text-sm md:text-base">Linktree</p>
-                    <a href="https://linktr.ee/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors break-all">linktr.ee/sanctumsound</a>
+                    <a href="https://linktr.ee/sanctum_sound" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors break-all">linktr.ee/sanctumsound</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Instagram className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="font-medium text-sm md:text-base">Instagram</p>
-                    <a href="https://instagram.com/sanctumsound" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors">@sanctumsound</a>
+                    <a href="https://instagram.com/sanctum_sound_studio" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors">@sanctumsound</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="font-medium text-sm md:text-base">{t('contact_address')}</p>
-                    <p className="text-xs md:text-sm text-muted-foreground">123 Studio Street, City</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Aleja Stanów Zjednoczonych 67, 03-770 Warszawa</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="font-medium text-sm md:text-base">{t('contact_phone')}</p>
-                    <p className="text-xs md:text-sm text-muted-foreground">+48 123 456 789</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">+48 881 238 684</p>
                   </div>
                 </div>
               </div>
