@@ -27,84 +27,59 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Sanctum Sound" className="h-12 w-auto" />
+            <img src={logo} alt="Sanctum Sound" className="h-10 md:h-12 w-auto" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Language Switcher */}
-          <div className="hidden md:flex items-center gap-2">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => setLanguage(lang.code as any)}
-                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                  language === lang.code
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-secondary text-secondary-foreground hover:bg-accent'
-                }`}
-              >
-                {lang.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            <nav className="flex flex-col gap-4 mb-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="flex gap-2">
+          <div className="flex items-center gap-3">
+            {/* Language Switcher */}
+            <div className="flex items-center gap-1.5">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => setLanguage(lang.code as any)}
-                  className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
+                  className={`px-2.5 py-1 text-xs font-medium rounded transition-all ${
                     language === lang.code
                       ? 'bg-primary text-primary-foreground'
-                      : 'bg-secondary text-secondary-foreground'
+                      : 'bg-secondary text-secondary-foreground hover:bg-accent'
                   }`}
                 >
                   {lang.label}
                 </button>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="text-foreground p-2 hover:bg-accent rounded transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Full Screen Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 top-16 md:top-20 bg-background z-40 overflow-y-auto">
+            <nav className="container mx-auto px-4 py-8 flex flex-col gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg font-medium py-4 px-4 rounded-lg transition-all ${
+                    location.pathname === item.path 
+                      ? 'bg-primary text-primary-foreground' 
+                      : 'text-foreground hover:bg-accent'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         )}
       </div>
