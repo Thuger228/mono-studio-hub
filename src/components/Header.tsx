@@ -32,8 +32,40 @@ const Header = () => {
             <img src={logo} alt="Sanctum Sound" className="h-10 md:h-12 w-auto" />
           </Link>
 
-          <div className="flex items-center gap-3">
-            {/* Language Switcher */}
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop Language Switcher */}
+          <div className="hidden md:flex items-center gap-2">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => setLanguage(lang.code as any)}
+                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
+                  language === lang.code
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-secondary text-secondary-foreground hover:bg-accent'
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile: Language Switcher + Menu Button */}
+          <div className="flex md:hidden items-center gap-3">
             <div className="flex items-center gap-1.5">
               {languages.map((lang) => (
                 <button
@@ -50,7 +82,6 @@ const Header = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="text-foreground p-2 hover:bg-accent rounded transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -61,9 +92,9 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Full Screen Mobile Navigation */}
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="fixed inset-0 top-16 md:top-20 bg-background z-40 overflow-y-auto">
+          <div className="md:hidden fixed inset-0 top-16 bg-background z-40 overflow-y-auto">
             <nav className="container mx-auto px-4 py-8 flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
