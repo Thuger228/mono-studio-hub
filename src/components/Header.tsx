@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import logo from '@/assets/logo.png';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import SmoothNavLink from './SmoothNavLink';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -10,10 +11,12 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { path: '/#home', label: t('nav_home') || 'Home' },
     { path: '/recording', label: t('nav_recording') },
     { path: '/rehearsals', label: t('nav_rehearsals') },
     { path: '/rent', label: t('nav_rent') },
     { path: '/price', label: t('nav_price') },
+    { path: '/#gallery', label: t('nav_gallery') || 'Gallery' },
     { path: '/contact', label: t('nav_contact') },
   ];
 
@@ -35,15 +38,11 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
+              <SmoothNavLink
                 key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
-                }`}
-              >
-                {item.label}
-              </Link>
+                path={item.path}
+                label={item.label}
+              />
             ))}
           </nav>
 
@@ -97,18 +96,17 @@ const Header = () => {
           <div className="md:hidden fixed inset-0 top-16 bg-background z-40 overflow-y-auto">
             <nav className="container mx-auto px-4 py-8 flex flex-col gap-2">
               {navItems.map((item) => (
-                <Link
+                <SmoothNavLink
                   key={item.path}
-                  to={item.path}
+                  path={item.path}
+                  label={item.label}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-lg font-medium py-4 px-4 rounded-lg transition-all ${
                     location.pathname === item.path 
                       ? 'bg-primary text-primary-foreground' 
                       : 'text-foreground hover:bg-accent'
                   }`}
-                >
-                  {item.label}
-                </Link>
+                />
               ))}
             </nav>
           </div>
