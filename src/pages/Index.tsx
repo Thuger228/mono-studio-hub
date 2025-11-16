@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/logo.jpg';
+import logo from '@/assets/logo.png';
 import { ArrowRight } from 'lucide-react';
 import Gallery from '@/components/Gallery';
 import recordingStudio from '@/assets/gallery/recording-studio.jpg';
