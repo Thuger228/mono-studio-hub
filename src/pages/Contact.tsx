@@ -48,7 +48,7 @@ const Contact = () => {
             {/* Google Maps */}
             <div className="bg-card border border-border rounded-lg overflow-hidden h-[400px] md:h-[600px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.3282101033764!2d21.012228776926436!3d52.229679171976095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc8cf59b6773%3A0xc2d4edc5f901f00c!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.022668981685!2d21.083040699999998!3d52.2429719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecdbef9fd1999%3A0xbae39472934ab9d5!2sAleja%20Stan%C3%B3w%20Zjednoczonych%2067%2C%2003-770%20Warszawa!5e0!3m2!1sru!2spl!4v1763254968136!5m2!1sru!2spl"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
