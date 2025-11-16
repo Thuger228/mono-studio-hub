@@ -7,7 +7,8 @@ const Price = () => {
   const packages = [
     {
       name: 'Recording',
-      price: '100',
+      prefix: 'from',
+      price: '100 pln',
       unit: '/hour',
       features: [
         'Professional sound engineer',
@@ -18,10 +19,12 @@ const Price = () => {
     },
     {
       name: 'Rehearsal',
-      price: '50',
+      prefix: 'from',
+      price: '50 pln',
       unit: '/hour',
       features: [
         'Full backline included',
+        'Full equipment access',
         'PA system',
         'Climate controlled',
         'Flexible scheduling',
@@ -29,18 +32,22 @@ const Price = () => {
     },
     {
       name: 'Equipment Rental',
-      price: '200',
-      unit: '/day',
+      prefix: '',
+      price: 'Optional',
       features: [
         'Professional PA system',
         'Premium microphones',
+        'Drums',
+        'Guitar and Bass stacks',
+        'Synths',
         'All cables included',
         'Technical support',
       ],
     },
     {
       name: 'Mixing & Mastering',
-      price: '300',
+      prefix: 'from',
+      price: '200 pln',
       unit: '/song',
       features: [
         'Professional mixing',
@@ -68,7 +75,8 @@ const Price = () => {
               >
                 <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">{pkg.name}</h3>
                 <div className="mb-4 md:mb-6">
-                  <span className="text-3xl md:text-4xl font-bold">${pkg.price}</span>
+                  <span className="text-xxs md:text-xxs font-bold">{pkg.prefix} </span>
+                  <span className="text-3xl md:text-4xl font-bold">{pkg.price}</span>
                   <span className="text-sm md:text-base text-muted-foreground">{pkg.unit}</span>
                 </div>
                 <ul className="space-y-2 md:space-y-3 flex-grow">
