@@ -61,12 +61,6 @@ const Index = () => {
       {/* Gallery Section */}
       <section className="py-12 md:py-20 bg-card">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 md:mb-4">
-            {t('gallery_title') || 'Studio Gallery'}
-          </h2>
-          <p className="text-sm md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-8 md:mb-12">
-            {t('gallery_desc') || 'Take a look inside our professional recording and rehearsal facilities'}
-          </p>
           <Gallery images={galleryImages} />
         </div>
       </section>
