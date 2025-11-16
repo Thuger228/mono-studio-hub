@@ -26,7 +26,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen pt-16 md:pt-20">
-      <section className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]">
+      <section id="home" className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBackground})` }}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background opacity-90"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
@@ -62,7 +62,7 @@ const Index = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-12 md:py-20 bg-card">
+      <section id="gallery" className="py-12 md:py-20 bg-card">
         <div className="container mx-auto px-4 md:px-6">
           <Gallery images={galleryImages} />
         </div>
