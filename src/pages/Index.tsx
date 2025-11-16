@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
 import { ArrowRight } from 'lucide-react';
 import Gallery from '@/components/Gallery';
+import heroBackground from '@/assets/hero-background.jpg';
 import recordingStudio from '@/assets/gallery/recording-studio.jpg';
 import rehearsalRoom from '@/assets/gallery/rehearsal-room.jpg';
 import equipment from '@/assets/gallery/equipment.jpg';
@@ -25,7 +26,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen pt-16 md:pt-20">
-      <section className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] bg-gradient-to-b from-background via-card to-background">
+      <section className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBackground})` }}></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background opacity-90"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
