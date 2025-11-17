@@ -237,7 +237,7 @@ const Index = () => {
       <Link to="/contact" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 animate-fade-in">
         <Button 
           size="lg" 
-          className="group px-8 py-4 md:px-10 md:py-5 text-base md:text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+          className="group px-8 py-4 md:px-10 md:py-5 text-base md:text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-pulse-subtle"
         >
           {t('nav_contact')}
           <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
