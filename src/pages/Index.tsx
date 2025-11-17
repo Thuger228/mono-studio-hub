@@ -119,17 +119,14 @@ const Index = () => {
             {t('hero_subtitle')}
           </p>
 
-          <div className="flex flex-col gap-3 justify-center animate-fade-in px-4 max-w-md mx-auto">
-            <Link to="/recording" className="w-full">
-              <Button size="lg" className="group w-full">
-                {t('nav_recording')}
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/contact" className="w-full">
-              <Button size="lg" variant="outline" className="group w-full">
+          <div className="flex justify-center animate-fade-in px-4">
+            <Link to="/contact">
+              <Button 
+                size="lg" 
+                className="group px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
                 {t('nav_contact')}
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
