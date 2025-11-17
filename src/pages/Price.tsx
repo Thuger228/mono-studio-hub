@@ -8,7 +8,7 @@ const Price = () => {
     {
       name: 'Recording',
       prefix: 'from',
-      price: '100 pln',
+      price: '100 zl',
       unit: '/hour',
       features: [
         'Professional sound engineer',
@@ -20,7 +20,7 @@ const Price = () => {
     {
       name: 'Rehearsal',
       prefix: 'from',
-      price: '50 pln',
+      price: '50 zl',
       unit: '/hour',
       features: [
         'Full backline included',
@@ -47,7 +47,7 @@ const Price = () => {
     {
       name: 'Mixing & Mastering',
       prefix: 'from',
-      price: '200 pln',
+      price: '200 zl',
       unit: '/song',
       features: [
         'Professional mixing',
@@ -75,7 +75,7 @@ const Price = () => {
               >
                 <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">{pkg.name}</h3>
                 <div className="mb-4 md:mb-6">
-                  <span className="text-xxs md:text-xxs font-bold">{pkg.prefix} </span>
+                  <span className="text-xxs md:text-base text-muted-foreground">{pkg.prefix} </span>
                   <span className="text-3xl md:text-4xl font-bold">{pkg.price}</span>
                   <span className="text-sm md:text-base text-muted-foreground">{pkg.unit}</span>
                 </div>
