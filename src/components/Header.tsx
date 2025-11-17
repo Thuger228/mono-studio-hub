@@ -1,20 +1,17 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import logo from '@/assets/logo.png';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { path: '/recording', label: t('nav_recording') },
     { path: '/rehearsals', label: t('nav_rehearsals') },
     { path: '/rent', label: t('nav_rent') },
     { path: '/price', label: t('nav_price') },
-    { path: '/contact', label: t('nav_contact') },
   ];
 
   const languages = [
@@ -32,19 +29,27 @@ const Header = () => {
             <img src={logo} alt="Sanctum Sound" className="h-10 md:h-12 w-auto" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - Horizontal Tabs with Arrows */}
+          <nav className="hidden md:flex items-center gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
-                }`}
+                className="flex items-center justify-between gap-3 px-6 py-3 bg-white text-foreground rounded-full font-bold text-sm hover:bg-white/90 transition-all group"
               >
-                {item.label}
+                <span>{item.label}</span>
+                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             ))}
+            <a
+              href="https://linktr.ee/sanctumsound"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 px-6 py-3 bg-white text-foreground rounded-full font-bold text-sm hover:bg-white/90 transition-all group"
+            >
+              <span>{t('nav_contact')}</span>
+              <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </nav>
 
           {/* Desktop Language Switcher */}
@@ -64,55 +69,44 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Mobile: Language Switcher + Menu Button */}
-          <div className="flex md:hidden items-center gap-3">
-            <div className="flex items-center gap-1.5">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => setLanguage(lang.code as any)}
-                  className={`px-2.5 py-1 text-xs font-medium rounded transition-all ${
-                    language === lang.code
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-secondary text-secondary-foreground hover:bg-accent'
-                  }`}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-
-            <button
-              className="text-foreground p-2 hover:bg-accent rounded transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+          {/* Mobile: Language Switcher Only */}
+          <div className="flex md:hidden items-center gap-1.5">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => setLanguage(lang.code as any)}
+                className={`px-2.5 py-1 text-xs font-medium rounded transition-all ${
+                  language === lang.code
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-secondary text-secondary-foreground hover:bg-accent'
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-16 bg-background z-40 overflow-y-auto">
-            <nav className="container mx-auto px-4 py-8 flex flex-col gap-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-lg font-medium py-4 px-4 rounded-lg transition-all ${
-                    location.pathname === item.path 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'text-foreground hover:bg-accent'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
+        {/* Mobile Navigation - Vertical Stacked Tabs */}
+        <nav className="md:hidden py-4 flex flex-col gap-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="flex items-center justify-center px-6 py-4 bg-white text-foreground rounded-full font-bold text-sm hover:bg-white/90 transition-all"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <a
+            href="https://linktr.ee/sanctumsound"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center px-6 py-4 bg-white text-foreground rounded-full font-bold text-sm hover:bg-white/90 transition-all"
+          >
+            {t('nav_contact')}
+          </a>
+        </nav>
       </div>
     </header>
   );
