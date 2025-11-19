@@ -25,76 +25,76 @@ const Index = () => {
   ];
 
   const recordingServices = [
-    { icon: Mic2, title: 'Vocal Recording', desc: 'Professional vocal booth with top-tier microphones' },
-    { icon: Music2, title: 'Instrument Recording', desc: 'Full band setup with isolated tracking rooms' },
-    { icon: Headphones, title: 'Mixing & Mastering', desc: 'Industry-standard mixing and mastering services' },
-    { icon: Radio, title: 'Audio Production', desc: 'Complete audio production from concept to final mix' },
+    { icon: Mic2, title: t('recording_vocal_title'), desc: t('recording_vocal_desc') },
+    { icon: Music2, title: t('recording_instrument_title'), desc: t('recording_instrument_desc') },
+    { icon: Headphones, title: t('recording_mixing_title'), desc: t('recording_mixing_desc') },
+    { icon: Radio, title: t('recording_production_title'), desc: t('recording_production_desc') },
   ];
 
   const rehearsalFeatures = [
-    { icon: Guitar, title: 'Full Backline', desc: 'Amplifiers, drums, and PA system included' },
-    { icon: Waves, title: 'Acoustic Treatment', desc: 'Professionally treated rooms for optimal sound' },
-    { icon: Music, title: 'Flexible Booking', desc: 'Hourly, daily, or monthly rental options' },
-    { icon: Drum, title: 'Climate Control', desc: 'Perfect temperature and humidity for instruments' },
+    { icon: Guitar, title: t('rehearsals_backline_title'), desc: t('rehearsals_backline_desc') },
+    { icon: Waves, title: t('rehearsals_acoustic_title'), desc: t('rehearsals_acoustic_desc') },
+    { icon: Music, title: t('rehearsals_booking_title'), desc: t('rehearsals_booking_desc') },
+    { icon: Drum, title: t('rehearsals_climate_title'), desc: t('rehearsals_climate_desc') },
   ];
 
   const rentEquipment = [
-    { icon: Speaker, title: 'PA Systems', desc: 'Professional sound reinforcement systems' },
-    { icon: Mic, title: 'Microphones', desc: 'Premium microphones for any application' },
-    { icon: Cable, title: 'Stage Equipment', desc: 'Cables, stands, and stage accessories' },
-    { icon: Disc, title: 'Recording Gear', desc: 'Portable recording equipment for field work' },
+    { icon: Speaker, title: t('rent_pa_title'), desc: t('rent_pa_desc') },
+    { icon: Mic, title: t('rent_mics_title'), desc: t('rent_mics_desc') },
+    { icon: Cable, title: t('rent_stage_title'), desc: t('rent_stage_desc') },
+    { icon: Disc, title: t('rent_recording_title'), desc: t('rent_recording_desc') },
   ];
 
   const pricePackages = [
     {
-      name: 'Recording',
-      prefix: 'from',
+      name: t('price_recording_name'),
+      prefix: t('price_from'),
       price: '100 pln',
       unit: '/hour',
       features: [
-        'Professional sound engineer',
-        'Full equipment access',
-        'Digital file delivery',
-        'One revision included',
+        t('price_recording_feature1'),
+        t('price_recording_feature2'),
+        t('price_recording_feature3'),
+        t('price_recording_feature4'),
       ],
     },
     {
-      name: 'Rehearsal',
-      prefix: 'from',
+      name: t('price_rehearsal_name'),
+      prefix: t('price_from'),
       price: '50 pln',
       unit: '/hour',
       features: [
-        'Full backline included',
-        'Full equipment access',
-        'PA system',
-        'Climate controlled',
-        'Flexible scheduling',
+        t('price_rehearsal_feature1'),
+        t('price_rehearsal_feature2'),
+        t('price_rehearsal_feature3'),
+        t('price_rehearsal_feature4'),
+        t('price_rehearsal_feature5'),
       ],
     },
     {
-      name: 'Equipment Rental',
+      name: t('price_rental_name'),
       prefix: '',
-      price: 'Optional',
+      price: t('price_optional'),
       features: [
-        'Professional PA system',
-        'Premium microphones',
-        'Drums',
-        'Guitar and Bass stacks',
-        'Synths',
-        'All cables included',
-        'Technical support',
+        t('price_rental_feature1'),
+        t('price_rental_feature2'),
+        t('price_rental_feature3'),
+        t('price_rental_feature4'),
+        t('price_rental_feature5'),
+        t('price_rental_feature6'),
+        t('price_rental_feature7'),
       ],
     },
     {
-      name: 'Mixing & Mastering',
-      prefix: 'from',
+      name: t('price_mixing_name'),
+      prefix: t('price_from'),
       price: '200 pln',
       unit: '/song',
       features: [
-        'Professional mixing',
-        'Mastering included',
-        'Unlimited revisions',
-        'Industry standard quality',
+        t('price_mixing_feature1'),
+        t('price_mixing_feature2'),
+        t('price_mixing_feature3'),
+        t('price_mixing_feature4'),
       ],
     },
   ];
@@ -204,7 +204,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 md:mb-6">{t('price_title')}</h2>
           <p className="text-base md:text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-16">
-            Transparent pricing for professional services
+            {t('price_subtitle')}
           </p>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8 max-w-7xl mx-auto">
@@ -253,7 +253,7 @@ const Index = () => {
           <div className="flex flex-col items-center text-center space-y-4">
             <img src={logo} alt="Sanctum Sound" className="h-16 w-auto" />
             <p className="text-muted-foreground text-sm">
-              Professional Recording Studio & Rehearsal Space
+              {t('footer_tagline')}
             </p>
             <p className="text-muted-foreground text-xs">
               © {new Date().getFullYear()} Sanctum Sound. All rights reserved.
