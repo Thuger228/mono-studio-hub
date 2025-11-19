@@ -234,15 +234,33 @@ const Index = () => {
       </section>
 
       {/* Fixed Contact Button */}
-      <Link to="/contact" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 animate-fade-in">
-        <Button 
-          size="lg" 
-          className="group px-8 py-4 md:px-10 md:py-5 text-base md:text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-pulse-subtle"
-        >
-          {t('nav_contact')}
-          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </Button>
+      <Link to="/contact" className="fixed bottom-12 left-1/2 -translate-x-1/2 z-40 animate-fade-in">
+        <div className="relative">
+          <div className="absolute inset-0 bg-background/60 backdrop-blur-md rounded-lg -z-10 blur-sm"></div>
+          <Button 
+            size="lg" 
+            className="group px-10 py-6 md:px-14 md:py-8 text-lg md:text-xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 animate-pulse-subtle"
+          >
+            {t('nav_contact')}
+            <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </div>
       </Link>
+
+      {/* Footer */}
+      <footer className="bg-card border-t border-border py-8 md:py-12">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <img src={logo} alt="Sanctum Sound" className="h-16 w-auto" />
+            <p className="text-muted-foreground text-sm">
+              Professional Recording Studio & Rehearsal Space
+            </p>
+            <p className="text-muted-foreground text-xs">
+              © {new Date().getFullYear()} Sanctum Sound. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
