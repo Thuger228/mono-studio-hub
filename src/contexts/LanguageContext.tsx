@@ -105,15 +105,43 @@ const translations = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Detect browser language and set default
+const detectBrowserLanguage = (): Language => {
+  const browserLang = navigator.language.toLowerCase();
+  
+  // Map browser language codes to our supported languages
+  if (browserLang.startsWith('pl')) return 'pl';
+  if (browserLang.startsWith('uk')) return 'uk';
+  if (browserLang.startsWith('be')) return 'be';
+  if (browserLang.startsWith('en')) return 'en';
+  
+  // Default to English if language not supported
+  return 'en';
+};
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(() => {
+    // Check if language is stored in localStorage
+    const storedLang = localStorage.getItem('language') as Language | null;
+    if (storedLang && ['pl', 'en', 'uk', 'be'].includes(storedLang)) {
+      return storedLang;
+    }
+    // Otherwise, detect browser language
+    return detectBrowserLanguage();
+  });
+
+  // Save language preference to localStorage when it changes
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('language', lang);
+  };
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations.en] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
