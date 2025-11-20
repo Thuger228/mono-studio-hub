@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import logo from '@/assets/logo.png';
 import { ArrowRight, Mic2, Headphones, Music2, Radio, Guitar, Waves, Music, Drum, Speaker, Mic, Cable, Disc, Check, MapPin, Phone, Instagram, Link as LinkIcon } from 'lucide-react';
 import Gallery from '@/components/Gallery';
@@ -13,6 +15,94 @@ import studioLounge from '@/assets/gallery/studio-lounge.jpg';
 
 const Index = () => {
   const { t } = useLanguage();
+  const [gearDialogOpen, setGearDialogOpen] = useState(false);
+
+  const studioGear = [
+    {
+      category: 'Drums',
+      items: [
+        'MAPEX VENUS VE5294FTC',
+        'Gibraltar 9608E Drum Throne',
+        'Millenium PD-223 Pro Series BD Pedal',
+        'Millenium 16" B20 China',
+        'Millenium 18" B20 Crash',
+        'Zultan 16" Aja Crash',
+        'Mapex P401 Pedal',
+      ]
+    },
+    {
+      category: 'Bass',
+      items: [
+        'Darkglass Alpha-Omega 500 Bass Head',
+        'Darkglass DG212N Bass Cabinet',
+        'Warwick Profet 5.1 Bass Head',
+        'Warwick WCA410-4W Bass Cabinet',
+      ]
+    },
+    {
+      category: 'Guitars',
+      items: [
+        'Blackstar HT Stage 100 Mk1 Guitar Head',
+        'Blackstar HVT Cabinet',
+        'Peavey 6505 Guitar Head',
+        'Marshall AVT412 Cabinet',
+        'Marshall JCM 2000 TSL 100 Guitar Head',
+        'Marshall Mg412 Cabinet',
+        'Randall RD45 Guitar Head',
+        'Randall Jaguar Cabinet',
+      ]
+    },
+    {
+      category: 'PA',
+      items: [
+        'Vonyx 800W 12\'\' USB BT',
+        'Behringer Xenyx X1622USB',
+      ]
+    },
+    {
+      category: 'Microphones',
+      items: [
+        'Microphones Shure Sm 57',
+        'Microphones Sennheiser E945',
+        'Microphones Shure Sm 58',
+      ]
+    },
+    {
+      category: 'Studio Stuff',
+      items: [
+        'Monitors Genelec 8330 APM',
+        'Presonus Studio 1824c Audio Card',
+        'DBX 286 S Vocal Preamp',
+        'Behringer ADA8200 Ultragain ADAT Audio Interface',
+        'Behringer DI20 Di-Box',
+        'Tc Electronics Polytune 3 Guitar/Bass Tuner',
+        'Overtone Labs Tune Bot Drum Tuner',
+        'Boss SD-1 Pedal',
+        'Electro Harmonix Metal Muff Pedal',
+        'Behringer UM300 Pedal',
+        'Amt Electronics Slap Bass Combo Emulator Pedal',
+        'Behringer P2 Headphones AMP',
+        'Phones Beyerdynamic DT-770 Pro',
+        'Phones Beyerdynamic DT-770 M',
+        'Phones The t.bone HD 815',
+        'Microphone Rode NT1 Signature Black',
+        'Microphone Shure SM-7B',
+        'Microphone Audiotechnika AT2020',
+        'Microphone Sennheiser E 602',
+        'Microphones Audix Adx 51',
+        'Microphone Behringer BA 19A',
+        'Microphone Audix i-5',
+        'Microphone Shure Sm57 LC',
+        'Microphones AKG P4',
+        'Microphone AKG P2',
+        'Microphones AKG P17',
+        'Bass guitar Harley Benton PJ-4 SBK Deluxe',
+        'Electric Guitar Jackson Kelly',
+        'Synth Startone MK-400',
+        'Acoustic Guitar Fusion Custom Made',
+      ]
+    },
+  ];
 
   const galleryImages = [
     { src: recordingStudio, alt: 'Professional Recording Studio' },
@@ -229,6 +319,39 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Studio Gear Section */}
+      <section id="studio-gear" className="py-12 md:py-20 bg-gradient-to-b from-card to-background">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8">{t('studio_gear_title')}</h2>
+          <Dialog open={gearDialogOpen} onOpenChange={setGearDialogOpen}>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="lg" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6">
+                {t('studio_gear_watch')}
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-xl md:text-2xl">{t('studio_gear_title')}</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-6 mt-4">
+                {studioGear.map((category, index) => (
+                  <div key={index} className="border-b border-border pb-4 last:border-b-0">
+                    <h3 className="text-lg md:text-xl font-semibold mb-3">{category.category}</h3>
+                    <ul className="space-y-2 text-left">
+                      {category.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-sm md:text-base text-muted-foreground pl-4">
+                          • {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 

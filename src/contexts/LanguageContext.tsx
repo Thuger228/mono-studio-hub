@@ -83,6 +83,10 @@ const translations = {
     contact_send: 'Wyślij',
     contact_address: 'Adres',
     contact_phone: 'Telefon',
+    contact_button: 'Skontaktuj się z nami',
+    studio_gear_title: 'Sprzęt Studia',
+    studio_gear_button: 'Zobacz pełną listę sprzętu',
+    studio_gear_watch: 'Zobacz',
   },
   en: {
     nav_recording: 'Recording',
@@ -158,6 +162,10 @@ const translations = {
     contact_send: 'Send',
     contact_address: 'Address',
     contact_phone: 'Phone',
+    contact_button: 'Contact Us',
+    studio_gear_title: 'Studio Gear',
+    studio_gear_button: 'View full equipment list',
+    studio_gear_watch: 'Watch',
   },
   uk: {
     nav_recording: 'Запис',
@@ -233,6 +241,10 @@ const translations = {
     contact_send: 'Надіслати',
     contact_address: 'Адреса',
     contact_phone: 'Телефон',
+    contact_button: 'Зв\'яжіться з нами',
+    studio_gear_title: 'Обладнання Студії',
+    studio_gear_button: 'Переглянути повний список обладнання',
+    studio_gear_watch: 'Переглянути',
   },
   be: {
     nav_recording: 'Запіс',
@@ -308,6 +320,10 @@ const translations = {
     contact_send: 'Адправіць',
     contact_address: 'Адрас',
     contact_phone: 'Тэлефон',
+    contact_button: 'Звяжыцеся з намі',
+    studio_gear_title: 'Абсталяванне Студыі',
+    studio_gear_button: 'Паглядзець поўны спіс абсталявання',
+    studio_gear_watch: 'Паглядзець',
   },
 };
 
