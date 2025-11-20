@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import logo from '@/assets/logo.png';
-import { ArrowRight, Mic2, Headphones, Music2, Radio, Guitar, Waves, Music, Drum, Speaker, Mic, Cable, Disc, Check, MapPin, Phone, Instagram, Link as LinkIcon } from 'lucide-react';
+import { ArrowRight, Mic2, Headphones, Music2, Radio, Guitar, Waves, Music, Drum, Speaker, Mic, Cable, Disc, Check, MapPin, Phone, Instagram, Link as LinkIcon, Eye, ListMusic } from 'lucide-react';
 import Gallery from '@/components/Gallery';
 import heroBackground from '@/assets/hero-background.jpg';
 import recordingStudio from '@/assets/gallery/recording-studio.jpg';
@@ -324,34 +324,45 @@ const Index = () => {
 
       {/* Studio Gear Section */}
       <section id="studio-gear" className="py-12 md:py-20 bg-gradient-to-b from-card to-background">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">{t('studio_gear_title')}</h2>
-          <Dialog open={gearDialogOpen} onOpenChange={setGearDialogOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline" size="lg" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6">
-                {t('studio_gear_watch')}
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-xl md:text-2xl">{t('studio_gear_title')}</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-6 mt-4">
-                {studioGear.map((category, index) => (
-                  <div key={index} className="border-b border-border pb-4 last:border-b-0">
-                    <h3 className="text-lg md:text-xl font-semibold mb-3">{category.category}</h3>
-                    <ul className="space-y-2 text-left">
-                      {category.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-sm md:text-base text-muted-foreground pl-4">
-                          • {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </DialogContent>
-          </Dialog>
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 md:mb-6">{t('studio_gear_title')}</h2>
+          <p className="text-base md:text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-10 md:mb-12">
+            {t('studio_gear_button')}
+          </p>
+          
+          <div className="flex justify-center">
+            <Dialog open={gearDialogOpen} onOpenChange={setGearDialogOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg" className="group px-8 md:px-12 py-6 md:py-8 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <Eye className="mr-2 w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
+                  {t('studio_gear_watch')}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-5xl max-h-[85vh] overflow-hidden flex flex-col">
+                <DialogHeader className="pb-4 border-b border-border">
+                  <DialogTitle className="text-xl md:text-3xl flex items-center gap-3">
+                    <ListMusic className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+                    {t('studio_gear_title')}
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="overflow-y-auto pr-2 space-y-8 mt-6">
+                  {studioGear.map((category, index) => (
+                    <div key={index} className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all duration-300">
+                      <h3 className="text-lg md:text-2xl font-bold mb-4 text-primary">{category.category}</h3>
+                      <ul className="grid gap-3 md:grid-cols-2">
+                        {category.items.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start gap-2 text-sm md:text-base">
+                            <Check className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
       </section>
 
