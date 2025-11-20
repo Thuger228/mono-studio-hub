@@ -10,7 +10,7 @@ const Header = () => {
     { path: '#rehearsals', label: t('nav_rehearsals') },
     { path: '#rent', label: t('nav_rent') },
     { path: '#price', label: t('nav_price') },
-    { path: '/contact', label: t('nav_contact') },
+    { path: '#contact', label: t('nav_contact') },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
