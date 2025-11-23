@@ -27,19 +27,19 @@ const Header = () => {
     { code: 'pl', label: 'PL' },
     { code: 'en', label: 'EN' },
     { code: 'uk', label: 'UK' },
-    { code: 'be', label: 'BE' },
+    { code: 'be', label: 'BEL' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center h-16 md:h-20">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Sanctum Sound" className="h-10 md:h-12 w-auto" />
+            <img src={logo} alt="Sanctum Sound" className="h-14 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 flex-1 justify-center">
             {navItems.map((item) => (
               <a
                 key={item.path}
@@ -53,7 +53,7 @@ const Header = () => {
           </nav>
 
           {/* Language Switcher */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-auto">
             {languages.map((lang) => (
               <button
                 key={lang.code}
