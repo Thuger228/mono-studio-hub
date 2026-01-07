@@ -41,7 +41,10 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Push changes
-        run: git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages
+        run: |
+          git fetch origin gh-pages
+          git merge origin/gh-pages || true
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
