@@ -43,8 +43,10 @@ jobs:
       - name: Push changes
         run: |
           git fetch origin gh-pages || true
-          git merge --allow-unrelated-histories origin/gh-pages || true
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages
+          git merge --allow-unrelated-histories -X theirs origin/gh-pages || true
+          git add .
+          git commit -m "Resolve conflicts and prepare for deployment" || true
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages --force
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
