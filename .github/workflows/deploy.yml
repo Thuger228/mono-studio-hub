@@ -52,4 +52,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # gh-pages reads this env var
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx gh-pages -d dist
+          npx gh-pages -d dist -m "Deploy React app (GitHub Actions)"
