@@ -18,7 +18,9 @@ jobs:
 
       - name: Configure git to use GitHub Actions token
         run: |
-          git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
       # Step 2: Set up Node.js
       - name: Set up Node.js
@@ -43,9 +45,7 @@ jobs:
       - name: Push changes
         run: |
           git fetch origin gh-pages || true
-          git merge --allow-unrelated-histories -X theirs origin/gh-pages || true
-          git add .
-          git commit -m "Resolve conflicts and prepare for deployment" || true
+          git merge --allow-unrelated-histories origin/gh-pages || true
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages --force
 
       # Step 6: Deploy to GitHub Pages
