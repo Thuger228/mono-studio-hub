@@ -47,7 +47,7 @@ jobs:
           git stash --include-untracked || true  # Stash uncommitted files
           git fetch origin gh-pages || true
           git checkout gh-pages || git checkout --orphan gh-pages
-          rm -rf .  # Clear the current content to avoid conflicts
+          git rm -rf . || true # Clear the current content to avoid conflicts
           cp -r dist/* .  # Copy the latest build output to root directory
           git add .
           git commit -m "Deploy React app (resolved conflicts) [skip ci]" --allow-empty
