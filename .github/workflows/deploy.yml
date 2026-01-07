@@ -36,8 +36,8 @@ jobs:
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: |
-          # publish Vite output (dist) to gh-pages branch
-          npx gh-pages -d dist
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # gh-pages reads this env var
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx gh-pages -d dist
